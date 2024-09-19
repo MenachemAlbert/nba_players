@@ -26,6 +26,14 @@ def find_all_seasons() -> List[SeasonStats]:
             return seasons
 
 
+def find_seasons_by_player_id(player_id: int) -> List[SeasonStats]:
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM season_stats WHERE player_id = %s", (player_id,))
+            res = cursor.fetchall()
+            return [SeasonStats(**s) for s in res]
+
+
 def find_season_by_id(season_id: int) -> SeasonStats | None:
     with get_db_connection() as connection:
         with connection.cursor() as cursor:

@@ -4,4 +4,7 @@
     <option name="sdkName" value="Python 3.12 (nba_players)" />
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (nba_players)" project-jdk-type="Python SDK" />
+  <component name="PyCharmProfessionalAdvertiser">
+    <option name="shown" value="true" />
+  </component>
 </project>
