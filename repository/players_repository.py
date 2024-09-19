@@ -24,13 +24,24 @@ def find_all_players() -> List[Player]:
             return players
 
 
-def find_player_by_name(player_name: int) -> Player | None:
+def find_player_by_name(player_name) -> Player | None:
     with get_db_connection() as connection:
         with connection.cursor() as cursor:
             cursor.execute("SELECT id FROM players WHERE player_Name = %s", (player_name,))
             res = cursor.fetchone()
             if res:
                 return res['id']
+            else:
+                return None
+
+
+def find_player_by_id(player_id: int) -> Player | None:
+    with get_db_connection() as connection:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT * FROM players WHERE id = %s", (player_id,))
+            res = cursor.fetchone()
+            if res:
+                return res
             else:
                 return None
 
