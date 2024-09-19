@@ -47,7 +47,7 @@ def update_player(player: Player) -> Player:
         with connection.cursor() as cursor:
             cursor.execute("""
                 UPDATE players
-                SET playerName = %s
+                SET player_name = %s
                 WHERE id = %s
             """, (player.player_name, player.id))
             connection.commit()
